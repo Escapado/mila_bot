@@ -1,4 +1,4 @@
-import { Low, JSONFile } from "https://cdn.skypack.dev/lowdb";
+import { Low, Memory } from "https://cdn.skypack.dev/lowdb";
 import { cron } from "https://deno.land/x/deno_cron/cron.ts";
 import { equal } from "https://deno.land/x/equal/mod.ts";
 import { Bot } from "https://deno.land/x/grammy/mod.ts";
@@ -70,17 +70,19 @@ interface Entry {
   title: string;
 }
 
-const file = "db.json";
-const adapter = new JSONFile(file);
-const db = new Low(adapter);
-
+//const file = "db.json";
+//const adapter = new JSONFile(file);
+const db = new Low(new Memory());
 await db.read();
-db.data ||= { entries: [] };
+db.data ||= { entries: [], listeners: [] };
+db.data.listeneres.push(5322723793);
+db.data.listeners.push(5381074483);
+await db.write();
 const bot = new Bot(Deno.env.get("telegram_api_key"));
 bot.on("message:text", (ctx) => {
   if (ctx.message.text.includes("/all")) {
     ctx.reply(
-      `<b>${db.data.entries.length} Einträge</b>` +
+      `<b>${db.data.entries.length} Einträge:</b>` +
         db.data.entries
           .map((entry: Entry) => {
             return `\n<a href="https://www.immobilienscout24.de/expose/${entry.id}">${entry.title}</a>\n${entry.size} | ${entry.rentWarm} warm`;
