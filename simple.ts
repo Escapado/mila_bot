@@ -76,9 +76,10 @@ console.log("Starting...");
 const db = new Low(new Memory());
 await db.read();
 db.data ||= { entries: [], listeners: [] };
-db.data.listeneres.push(5322723793);
+db.data.listeners.push(5322723793);
 db.data.listeners.push(5381074483);
 await db.write();
+console.log("Added initial ");
 const bot = new Bot(Deno.env.get("telegram_api_key"));
 bot.on("message:text", (ctx) => {
   console.log("Recieved message");
@@ -94,8 +95,10 @@ bot.on("message:text", (ctx) => {
     );
   } else if (ctx.message.text.includes("/subscribe")) {
     ctx.reply("Erfolgreich registriert");
-    db.data.listeners.push(ctx.chat.id);
-    db.write();
+    if (db.data.listeners.find((listener) => listener === ctx.chat.id)) {
+      db.data.listeners.push(ctx.chat.id);
+      db.write();
+    }
   } else if (ctx.message.text.includes("/unsubscribe")) {
     ctx.reply(
       "Erfolgreich abgemeldet. Du erhältst nun keine Nachrichten mehr."
