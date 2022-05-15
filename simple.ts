@@ -72,6 +72,7 @@ interface Entry {
 
 //const file = "db.json";
 //const adapter = new JSONFile(file);
+console.log("Starting...");
 const db = new Low(new Memory());
 await db.read();
 db.data ||= { entries: [], listeners: [] };
@@ -80,6 +81,7 @@ db.data.listeners.push(5381074483);
 await db.write();
 const bot = new Bot(Deno.env.get("telegram_api_key"));
 bot.on("message:text", (ctx) => {
+  console.log("Recieved message");
   if (ctx.message.text.includes("/all")) {
     ctx.reply(
       `<b>${db.data.entries.length} Einträge:</b>` +
