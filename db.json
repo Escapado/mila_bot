@@ -1,0 +1,38 @@
+{
+  "entries": [
+    {
+      "createdAt": "2022-05-13T14:00:33.000+02:00",
+      "modifiedAt": "2022-05-14T18:00:24.667+02:00",
+      "publishedAt": "2022-05-13T14:00:33.000+02:00",
+      "id": "133610500",
+      "size": "43,93 m²",
+      "rent": "342,65 €",
+      "rentWarm": "472,65 €",
+      "title": "2 Zimmerwohnung in Allermöhe"
+    },
+    {
+      "createdAt": "2022-05-10T11:34:50.641+02:00",
+      "modifiedAt": "2022-05-10T11:32:28.671+02:00",
+      "publishedAt": "2022-05-10T11:34:50.641+02:00",
+      "id": "133543274",
+      "size": "81,7 m²",
+      "rent": "1.200 €",
+      "rentWarm": "1.420,00 €",
+      "title": "Neuwertige Penthouse-Wohnung mit drei Zimmern mit Dachterasse"
+    },
+    {
+      "createdAt": "2022-03-31T12:04:06.000+02:00",
+      "modifiedAt": "2022-04-11T16:12:16.568+02:00",
+      "publishedAt": "2022-03-31T12:04:06.000+02:00",
+      "id": "37865684",
+      "size": "80,19 m²",
+      "rent": "750,60 €",
+      "rentWarm": "1.045,60 €",
+      "title": "Begehrte 3-Zi.-Whg. mit Terrasse in Neuallermöhe"
+    }
+  ],
+  "listeners": [
+    5322723793,
+    5381074483
+  ]
+}
